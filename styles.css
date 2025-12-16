@@ -225,6 +225,26 @@ h1 {
   white-space: nowrap;
 }
 
+.resume-subheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.resume-subheader em {
+  color: #cbd5e1;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.resume-location {
+  color: #9ca3af;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
 .resume-company {
   color: #cbd5e1;
   font-size: 1.05rem;
