@@ -126,6 +126,102 @@ h1 {
   margin-top: 0.5rem;
 }
 
+/* Resume styles */
+.resume-content {
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+.resume-section {
+  margin-bottom: 1.5rem;
+}
+
+.resume-section h3 {
+  color: #7dd3fc;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(125, 211, 252, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.resume-item {
+  margin-bottom: 1rem;
+}
+
+.resume-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.resume-date {
+  color: #9ca3af;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.resume-company {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.resume-item ul {
+  list-style: none;
+  padding-left: 0;
+  color: #d1d5db;
+}
+
+.resume-item ul li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.resume-item ul li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #38bdf8;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 6px;
+  color: #7dd3fc;
+  font-size: 0.9rem;
+}
+
+.btn-download {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(139, 92, 246, 0.1));
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 8px;
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-download:hover {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(139, 92, 246, 0.15));
+  border-color: rgba(56, 189, 248, 0.5);
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* Hero graphic */
 .hero-graphic {
   width: 100%;
