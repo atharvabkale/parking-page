@@ -273,19 +273,21 @@ h1 {
 
 .btn-download {
   display: inline-block;
-  padding: 0.75rem 1.25rem;
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(139, 92, 246, 0.1));
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 5px;
   color: #38bdf8;
   text-decoration: none;
   font-weight: 500;
+  font-size: 0.9rem;
   transition: all 0.2s;
 }
 
 .btn-download:hover {
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(139, 92, 246, 0.15));
-  border-color: rgba(56, 189, 248, 0.5);
+  background: rgba(56, 189, 248, 0.15);
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-1px);
   text-decoration: none;
   cursor: pointer;
 }
