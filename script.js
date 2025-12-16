@@ -1,6 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
+	const menuToggle = document.getElementById('menuToggle');
+	const mainMenu = document.getElementById('mainMenu');
 	const menuItems = Array.from(document.querySelectorAll('.menu-item'));
 	const sections = Array.from(document.querySelectorAll('.section'));
+
+	// Hamburger menu toggle
+	if (menuToggle) {
+		menuToggle.addEventListener('click', () => {
+			const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+			menuToggle.setAttribute('aria-expanded', !isOpen);
+			mainMenu.classList.toggle('active');
+		});
+	}
+
+	// Close menu when item is clicked
+	menuItems.forEach(btn => {
+		btn.addEventListener('click', () => {
+			if (menuToggle) {
+				menuToggle.setAttribute('aria-expanded', 'false');
+				mainMenu.classList.remove('active');
+			}
+		});
+	});
 
 	function showSection(id) {
 		sections.forEach(s => s.classList.toggle('active', s.id === id));
@@ -33,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	});
 
-	// Expose a default (home) on load
+	// Expose a default (about) on load
 	if (menuItems.length) {
 		// default to 'about' as requested
 		const aboutIndex = menuItems.findIndex(b => b.dataset.target === 'about');

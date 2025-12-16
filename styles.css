@@ -5,31 +5,149 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Garamond", "Garamond Premier Pro", "Georgia", serif;
   background: #000000;          /* pure black as requested */
   color: #e5e7eb;               /* light gray */
-  min-height: 100vh;
   display: block; /* allow normal document flow and scrolling */
   -webkit-font-smoothing: antialiased;
 }
 
-.page {
-  text-align: center;
-  padding: 1rem 0.5rem;
-  border-radius: 12px;
-  background: transparent;
-  box-shadow: none;
+/* Header Layout */
+.site-header {
+  background: #000;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.75rem;
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.site-header h1 {
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+/* Hamburger Button */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
 }
 
 .tagline {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+  text-align: center;
+  margin: 0.5rem 0 0 0;
   color: #9ca3af;
+}
+
+.hero-graphic {
+  width: 100%;
+  height: 60px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+.hero-graphic svg { 
+  width: 100%; 
+  height: 100%; 
+  display: block; 
+}
+
+/* Hidden menu - slides down from header */
+.main-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: rgba(255,255,255,0.02);
+}
+
+.main-menu.active {
+  max-height: 400px;
+}
+
+.menu-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  padding: 0.75rem 0;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+}
+
+.menu-item {
+  width: 100%;
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-item:focus,
+.menu-item:hover {
+  outline: none;
+  background: rgba(56,189,248,0.08);
+}
+
+/* Main content layout */
+.main-area {
+  display: block;
+}
+
+.content {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding: 1.5rem;
+  border-radius: 12px;
+  min-height: 220px;
+  color: #dbeafe;
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+
+
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0;
 }
 
 .contact a {
@@ -46,68 +164,10 @@ h1 {
   width: 100%;
   max-width: 1000px;
   padding: 1.5rem;
+  margin: 0 auto;
 }
 
-/* Header */
-.site-header .page {
-  margin-bottom: 1rem;
-  background: transparent;
-  box-shadow: none;
-  padding: 0.5rem 0;
-}
-
-.site-header h1 {
-  font-size: 2rem;
-}
-
-.main-area {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 1.5rem;
-  align-items: start;
-}
-
-/* Menu grid */
-.main-menu {
-  background: rgba(255,255,255,0.02);
-  padding: 1rem;
-  border-radius: 12px;
-}
-
-.menu-grid {
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.5rem;
-}
-
-.menu-item {
-  width: 100%;
-  display: inline-block;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  color: inherit;
-  border: 1px solid rgba(255,255,255,0.04);
-  font-size: 1rem;
-  cursor: pointer;
-  text-align: left;
-}
-
-.menu-item:focus,
-.menu-item:hover {
-  outline: none;
-  background: rgba(56,189,248,0.08);
-  border-color: rgba(56,189,248,0.2);
-}
-
-.content {
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  padding: 1.5rem;
-  border-radius: 12px;
-  min-height: 220px;
-  color: #dbeafe;
-}
+/* Remove old sidebar styles below */
 
 .section {
   display: none;

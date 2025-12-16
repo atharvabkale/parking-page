@@ -8,26 +8,28 @@
     </head>
     <body>
         <header class="site-header">
-            <div class="page container">
+            <div class="header-top">
                 <h1>atharvakale.com</h1>
-                <p class="tagline">About Me</p>
-                <div class="hero-graphic" aria-hidden="true">
-                    <!-- Simple decorative SVG blob for an aesthetic header graphic -->
-                    <svg viewBox="0 0 600 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="g1" x1="0" x2="1">
-                                <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.18" />
-                                <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.12" />
-                            </linearGradient>
-                        </defs>
-                        <path d="M0,100 C120,10 240,190 360,100 C480,10 600,190 600,100 L600 0 L0 0 Z" fill="url(#g1)"/>
-                    </svg>
-                </div>
+                <button class="hamburger" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-        </header>
-
-        <main class="container main-area">
-            <nav class="main-menu" aria-label="Main menu">
+            <p class="tagline">About Me</p>
+            <div class="hero-graphic" aria-hidden="true">
+                <!-- Simple decorative SVG blob for an aesthetic header graphic -->
+                <svg viewBox="0 0 600 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="g1" x1="0" x2="1">
+                            <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.18" />
+                            <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.12" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M0,100 C120,10 240,190 360,100 C480,10 600,190 600,100 L600 0 L0 0 Z" fill="url(#g1)"/>
+                </svg>
+            </div>
+            <nav class="main-menu" id="mainMenu" aria-label="Main menu">
                 <ul class="menu-grid">
                     <li><button class="menu-item" data-target="home">Home</button></li>
                     <li><button class="menu-item" data-target="about">About</button></li>
@@ -37,7 +39,9 @@
                     <li><button class="menu-item" data-target="contact">Contact</button></li>
                 </ul>
             </nav>
+        </header>
 
+        <main class="container main-area">
             <section class="content">
                 <div id="home" class="section">
                     <h2>Welcome</h2>
