@@ -1,12 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-	// Hide loader when page is fully loaded
-	const loaderOverlay = document.getElementById('loaderOverlay');
-	if (loaderOverlay) {
-		setTimeout(() => {
-			loaderOverlay.classList.add('hidden');
-		}, 500); // Small delay to ensure smooth transition
-	}
-
 	const menuToggle = document.getElementById('menuToggle');
 	const mainMenu = document.getElementById('mainMenu');
 	const menuItems = Array.from(document.querySelectorAll('.menu-item'));
