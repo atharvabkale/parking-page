@@ -10,7 +10,19 @@
         <header class="site-header">
             <div class="page container">
                 <h1>atharvakale.com</h1>
-                <p class="tagline">Welcome — choose a section below</p>
+                <p class="tagline">About Me</p>
+                <div class="hero-graphic" aria-hidden="true">
+                    <!-- Simple decorative SVG blob for an aesthetic header graphic -->
+                    <svg viewBox="0 0 600 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="g1" x1="0" x2="1">
+                                <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.18" />
+                                <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.12" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M0,100 C120,10 240,190 360,100 C480,10 600,190 600,100 L600 0 L0 0 Z" fill="url(#g1)"/>
+                    </svg>
+                </div>
             </div>
         </header>
 
@@ -26,14 +38,16 @@
             </nav>
 
             <section class="content">
-                <div id="home" class="section active">
+                <div id="home" class="section">
                     <h2>Welcome</h2>
                     <p>This is the main menu. Use the buttons above or arrow keys to navigate.</p>
                 </div>
 
-                <div id="about" class="section">
-                    <h2>About</h2>
-                    <p>About content placeholder — tell visitors who you are.</p>
+                <div id="about" class="section active">
+                    <h2>About Me</h2>
+                    <p>Hi — I'm Athar. I build web projects, enjoy clean design, and love experimenting with small animations and visuals.
+                    This site showcases work, projects and a small gallery. Scroll to see more.</p>
+                    <p class="accent">Designer • Developer • Curious Learner</p>
                 </div>
 
                 <div id="projects" class="section">

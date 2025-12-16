@@ -35,7 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// Expose a default (home) on load
 	if (menuItems.length) {
-		focused = 0;
-		menuItems[0].setAttribute('tabindex', '0');
+		// default to 'about' as requested
+		const aboutIndex = menuItems.findIndex(b => b.dataset.target === 'about');
+		focused = aboutIndex >= 0 ? aboutIndex : 0;
+		menuItems.forEach((b, i) => b.setAttribute('tabindex', i === focused ? '0' : '-1'));
+		// show About section
+		showSection(menuItems[focused].dataset.target);
 	}
 });
