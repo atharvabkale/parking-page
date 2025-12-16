@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	const menuItems = Array.from(document.querySelectorAll('.menu-item'));
 	const sections = Array.from(document.querySelectorAll('.section'));
 
-	// Typing animation function
-	function typeText(element, text, speed = 50) {
+	// Typing animation function with human-like pauses
+	function typeText(element, text, baseSpeed = 50) {
 		return new Promise((resolve) => {
 			element.textContent = '';
 			let index = 0;
@@ -14,7 +14,24 @@ document.addEventListener('DOMContentLoaded', () => {
 				if (index < text.length) {
 					element.textContent += text[index];
 					index++;
-					setTimeout(type, speed);
+					
+					// Random variation for natural feel
+					let delay = baseSpeed;
+					
+					// Longer pause at punctuation
+					if (['.', ',', '!', '?'].includes(text[index - 1])) {
+						delay = baseSpeed * 4; // 200ms pause at punctuation
+					}
+					// Random occasional pauses (human thinking)
+					else if (Math.random() < 0.05) { // 5% chance per character
+						delay = baseSpeed * 8; // 400ms thinking pause
+					}
+					// Slight variation in regular typing speed
+					else {
+						delay = baseSpeed + Math.random() * 30 - 15; // ±15ms variation
+					}
+					
+					setTimeout(type, delay);
 				} else {
 					resolve();
 				}
