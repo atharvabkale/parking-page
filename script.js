@@ -48,16 +48,27 @@ document.addEventListener('DOMContentLoaded', () => {
 			const heading = aboutSection.querySelector('h2');
 			const paragraphs = Array.from(aboutSection.querySelectorAll('p'));
 			
+			// Store original text before clearing
+			const headingText = heading ? heading.textContent : '';
+			const paragraphTexts = paragraphs.map(p => p.textContent);
+			
+			// Clear all text immediately before animation starts
+			if (heading) heading.textContent = '';
+			paragraphs.forEach(p => p.textContent = '');
+			
+			// Small delay to ensure clear happened
+			await new Promise(resolve => setTimeout(resolve, 50));
+			
 			// Type heading first
 			if (heading) {
-				await typeText(heading, heading.textContent, 35);
+				await typeText(heading, headingText, 35);
 				await new Promise(resolve => setTimeout(resolve, 200)); // brief pause
 			}
 			
 			// Type each paragraph sequentially
 			for (let i = 0; i < paragraphs.length; i++) {
 				const p = paragraphs[i];
-				const text = p.textContent;
+				const text = paragraphTexts[i];
 				await typeText(p, text, 35);
 				
 				// Add pause between paragraphs (except after the last one)
