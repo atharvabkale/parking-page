@@ -44,10 +44,26 @@ document.addEventListener('DOMContentLoaded', () => {
 	async function initializeTyping() {
 		const aboutSection = document.getElementById('about');
 		if (aboutSection) {
-			const paragraphs = aboutSection.querySelectorAll('p');
-			for (let p of paragraphs) {
+			// Get heading and paragraphs in order
+			const heading = aboutSection.querySelector('h2');
+			const paragraphs = Array.from(aboutSection.querySelectorAll('p'));
+			
+			// Type heading first
+			if (heading) {
+				await typeText(heading, heading.textContent, 35);
+				await new Promise(resolve => setTimeout(resolve, 200)); // brief pause
+			}
+			
+			// Type each paragraph sequentially
+			for (let i = 0; i < paragraphs.length; i++) {
+				const p = paragraphs[i];
 				const text = p.textContent;
-				await typeText(p, text, 30);
+				await typeText(p, text, 35);
+				
+				// Add pause between paragraphs (except after the last one)
+				if (i < paragraphs.length - 1) {
+					await new Promise(resolve => setTimeout(resolve, 300));
+				}
 			}
 		}
 	}
