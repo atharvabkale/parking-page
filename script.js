@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const sections = Array.from(document.querySelectorAll('.section'));
 
 	// Typing animation function with human-like pauses
-	function typeText(element, text, baseSpeed = 50) {
+	function typeText(element, text, baseSpeed = 35) {
 		return new Promise((resolve) => {
 			element.textContent = '';
 			let index = 0;
@@ -18,17 +18,17 @@ document.addEventListener('DOMContentLoaded', () => {
 					// Random variation for natural feel
 					let delay = baseSpeed;
 					
-					// Longer pause at punctuation
+					// Subtle pause at punctuation
 					if (['.', ',', '!', '?'].includes(text[index - 1])) {
-						delay = baseSpeed * 4; // 200ms pause at punctuation
+						delay = baseSpeed * 2.5; // 87ms pause at punctuation
 					}
-					// Random occasional pauses (human thinking)
-					else if (Math.random() < 0.05) { // 5% chance per character
-						delay = baseSpeed * 8; // 400ms thinking pause
+					// Random occasional pauses (human thinking) - less frequent
+					else if (Math.random() < 0.02) { // 2% chance per character
+						delay = baseSpeed * 4; // 140ms thinking pause
 					}
 					// Slight variation in regular typing speed
 					else {
-						delay = baseSpeed + Math.random() * 30 - 15; // ±15ms variation
+						delay = baseSpeed + Math.random() * 15 - 7.5; // ±7.5ms variation
 					}
 					
 					setTimeout(type, delay);
