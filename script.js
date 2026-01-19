@@ -177,6 +177,46 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	});
 
+	// Copyright protection - prevent saving/screenshotting
+	function protectLightboxImage() {
+		// Disable right-click on lightbox
+		lightbox.addEventListener('contextmenu', (e) => {
+			if (lightbox.style.display === 'flex') {
+				e.preventDefault();
+				return false;
+			}
+		});
+
+		// Disable keyboard shortcuts for saving/printing when lightbox is open
+		document.addEventListener('keydown', (e) => {
+			if (lightbox.style.display === 'flex') {
+				// Ctrl+S (Save)
+				if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+					e.preventDefault();
+					return false;
+				}
+				// Ctrl+P (Print)
+				if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+					e.preventDefault();
+					return false;
+				}
+				// Ctrl+Shift+S (Screenshot)
+				if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'S') {
+					e.preventDefault();
+					return false;
+				}
+			}
+		});
+
+		// Disable drag and drop on image
+		lightboxImage.addEventListener('dragstart', (e) => {
+			e.preventDefault();
+			return false;
+		});
+	}
+
+	protectLightboxImage();
+
 	// Keyboard navigation
 	document.addEventListener('keydown', (e) => {
 		if (lightbox.style.display === 'flex') {

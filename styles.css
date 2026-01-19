@@ -454,6 +454,22 @@ h1 {
   border-color: #38bdf8;
 }
 
+/* Copyright protection */
+.lightbox-image {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+}
+
+.lightbox {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 /* Footer */
 .site-footer {
   margin-top: auto;
