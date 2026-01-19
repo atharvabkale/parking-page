@@ -76,7 +76,55 @@ document.addEventListener('DOMContentLoaded', () => {
 					await new Promise(resolve => setTimeout(resolve, 300));
 				}
 			}
+
+			// After typing completes, show tutorial overlay
+			showTutorialOverlay();
 		}
+	}
+
+	// Tutorial overlay function
+	function showTutorialOverlay() {
+		const tutorialOverlay = document.getElementById('tutorialOverlay');
+		const tutorialSpotlight = document.getElementById('tutorialSpotlight');
+		const tutorialText = document.getElementById('tutorialText');
+
+		if (!tutorialOverlay || !menuToggle) return;
+
+		// Add active class to show overlay
+		tutorialOverlay.classList.add('active');
+
+		// Get hamburger button position
+		const rect = menuToggle.getBoundingClientRect();
+		const circleSize = 120;
+		const circleX = rect.left + rect.width / 2 - circleSize / 2;
+		const circleY = rect.top + rect.height / 2 - circleSize / 2;
+
+		// Create circle spotlight
+		const circle = document.createElement('div');
+		circle.className = 'tutorial-circle';
+		circle.style.width = circleSize + 'px';
+		circle.style.height = circleSize + 'px';
+		circle.style.left = circleX + 'px';
+		circle.style.top = circleY + 'px';
+		tutorialSpotlight.appendChild(circle);
+
+		// Position "Click Me!" text below hamburger
+		tutorialText.style.position = 'absolute';
+		tutorialText.style.top = rect.bottom + 20 + 'px';
+		tutorialText.style.right = 'auto';
+		tutorialText.style.left = rect.left + rect.width / 2 - 60 + 'px';
+
+		// Close tutorial when user clicks hamburger, overlay, or "Click Me!"
+		function closeTutorial() {
+			tutorialOverlay.classList.remove('active');
+			tutorialOverlay.classList.add('hidden');
+		}
+
+		menuToggle.addEventListener('click', closeTutorial, { once: true });
+		tutorialText.addEventListener('click', closeTutorial);
+		tutorialOverlay.addEventListener('click', (e) => {
+			if (e.target === tutorialOverlay) closeTutorial();
+		});
 	}
 
 	// Hamburger menu toggle
