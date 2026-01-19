@@ -425,27 +425,33 @@ h1 {
 
 .lightbox-nav {
   position: absolute;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  width: 100%;
+  pointer-events: none;
 }
 
 .lightbox-button {
-  background: rgba(56, 189, 248, 0.2);
-  border: 1px solid rgba(56, 189, 248, 0.4);
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
   color: #38bdf8;
   font-size: 1.5rem;
-  padding: 0.75rem 1rem;
-  border-radius: 6px;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  pointer-events: all;
 }
 
 .lightbox-button:hover {
-  background: rgba(56, 189, 248, 0.3);
-  border-color: rgba(56, 189, 248, 0.6);
+  background: #38bdf8;
+  color: #000;
+  border-color: #38bdf8;
 }
 
 /* Footer */
