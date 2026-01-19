@@ -3,6 +3,61 @@ document.addEventListener('DOMContentLoaded', () => {
 	const mainMenu = document.getElementById('mainMenu');
 	const menuItems = Array.from(document.querySelectorAll('.menu-item'));
 	const sections = Array.from(document.querySelectorAll('.section'));
+	const bouncyContainer = document.getElementById('bouncyContainer');
+	const bouncyImage = document.getElementById('bouncyImage');
+	let bouncyAnimationId = null;
+
+	// Brownian motion effect for bouncy image
+	function startBouncyAnimation() {
+		if (!bouncyContainer || !bouncyImage) return;
+
+		bouncyContainer.classList.add('active');
+
+		let x = Math.random() * (window.innerWidth - 80);
+		let y = Math.random() * (window.innerHeight - 80);
+		let vx = (Math.random() - 0.5) * 4;
+		let vy = (Math.random() - 0.5) * 4;
+
+		function animate() {
+			// Add some randomness (Brownian motion)
+			vx += (Math.random() - 0.5) * 0.5;
+			vy += (Math.random() - 0.5) * 0.5;
+
+			// Limit velocity
+			vx = Math.max(-4, Math.min(4, vx));
+			vy = Math.max(-4, Math.min(4, vy));
+
+			x += vx;
+			y += vy;
+
+			// Bounce off walls
+			if (x <= 0 || x >= window.innerWidth - 80) {
+				vx *= -1;
+				x = Math.max(0, Math.min(window.innerWidth - 80, x));
+			}
+			if (y <= 0 || y >= window.innerHeight - 80) {
+				vy *= -1;
+				y = Math.max(0, Math.min(window.innerHeight - 80, y));
+			}
+
+			bouncyImage.style.left = x + 'px';
+			bouncyImage.style.top = y + 'px';
+
+			bouncyAnimationId = requestAnimationFrame(animate);
+		}
+
+		animate();
+	}
+
+	function stopBouncyAnimation() {
+		if (bouncyAnimationId) {
+			cancelAnimationFrame(bouncyAnimationId);
+			bouncyAnimationId = null;
+		}
+		if (bouncyContainer) {
+			bouncyContainer.classList.remove('active');
+		}
+	}
 
 	// Typing animation function with human-like pauses
 	function typeText(element, text, baseSpeed = 35) {
@@ -59,6 +114,9 @@ document.addEventListener('DOMContentLoaded', () => {
 			// Small delay to ensure clear happened
 			await new Promise(resolve => setTimeout(resolve, 50));
 			
+			// Start bouncy animation during typing
+			startBouncyAnimation();
+			
 			// Type heading first
 			if (heading) {
 				await typeText(heading, headingText, 35);
@@ -76,6 +134,9 @@ document.addEventListener('DOMContentLoaded', () => {
 					await new Promise(resolve => setTimeout(resolve, 300));
 				}
 			}
+
+			// Stop bouncy animation after typing completes
+			stopBouncyAnimation();
 
 			// After typing completes, show tutorial overlay
 			showTutorialOverlay();
@@ -95,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		// Get hamburger button position
 		const rect = menuToggle.getBoundingClientRect();
-		const circleSize = 120;
+		const circleSize = Math.max(rect.width, rect.height) + 20;
 		const circleX = rect.left + rect.width / 2 - circleSize / 2;
 		const circleY = rect.top + rect.height / 2 - circleSize / 2;
 
