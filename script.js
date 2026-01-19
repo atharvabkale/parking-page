@@ -56,6 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 		if (bouncyContainer) {
 			bouncyContainer.classList.remove('active');
+			bouncyContainer.classList.add('stopped');
+			// Position image at bottom of page
+			bouncyImage.style.position = 'static';
+			bouncyImage.style.left = 'auto';
+			bouncyImage.style.top = 'auto';
 		}
 	}
 

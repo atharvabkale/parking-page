@@ -574,6 +574,15 @@ h1 {
   display: block;
 }
 
+.bouncy-image-container.stopped {
+  position: static;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
 .bouncy-image {
   position: fixed;
   width: 80px;
@@ -583,6 +592,14 @@ h1 {
   box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
   pointer-events: none;
   user-select: none;
+}
+
+.bouncy-image-container.stopped .bouncy-image {
+  position: static;
+  width: 200px;
+  height: 200px;
+  transition: all 0.5s ease;
+  cursor: pointer;
 }
 
 /* Footer */
