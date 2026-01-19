@@ -615,30 +615,28 @@ h1 {
 /* Contact Buttons */
 .contact-buttons {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-top: 2rem;
   flex-wrap: wrap;
 }
 
 .btn-contact {
   display: inline-block;
-  padding: 0.75rem 2rem;
-  background: #38bdf8;
-  color: #000;
+  padding: 0.4rem 0.8rem;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 5px;
+  color: #7dd3fc;
   text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
   cursor: pointer;
-  border: 2px solid #38bdf8;
 }
 
 .btn-contact:hover {
-  background: transparent;
-  color: #38bdf8;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+  background: rgba(56, 189, 248, 0.15);
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-1px);
 }
 
 /* Responsive */
