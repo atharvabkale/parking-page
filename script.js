@@ -129,7 +129,64 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	});
 
-	// Expose a default (about) on load
+	// Gallery lightbox functionality
+	const lightbox = document.getElementById('lightbox');
+	const lightboxImage = document.getElementById('lightboxImage');
+	const lightboxClose = document.getElementById('lightboxClose');
+	const lightboxPrev = document.getElementById('lightboxPrev');
+	const lightboxNext = document.getElementById('lightboxNext');
+	const galleryImages = Array.from(document.querySelectorAll('.gallery-image'));
+	let currentImageIndex = 0;
+
+	function openLightbox(index) {
+		currentImageIndex = index;
+		lightboxImage.src = galleryImages[index].src;
+		lightbox.style.display = 'flex';
+		document.body.style.overflow = 'hidden';
+	}
+
+	function closeLightbox() {
+		lightbox.style.display = 'none';
+		document.body.style.overflow = 'auto';
+	}
+
+	function showNextImage() {
+		currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+		lightboxImage.src = galleryImages[currentImageIndex].src;
+	}
+
+	function showPrevImage() {
+		currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+		lightboxImage.src = galleryImages[currentImageIndex].src;
+	}
+
+	// Gallery item click handlers
+	galleryImages.forEach((img, index) => {
+		img.parentElement.addEventListener('click', () => openLightbox(index));
+	});
+
+	// Lightbox controls
+	lightboxClose.addEventListener('click', closeLightbox);
+	lightboxPrev.addEventListener('click', showPrevImage);
+	lightboxNext.addEventListener('click', showNextImage);
+
+	// Close lightbox when clicking outside the image
+	lightbox.addEventListener('click', (e) => {
+		if (e.target === lightbox) {
+			closeLightbox();
+		}
+	});
+
+	// Keyboard navigation
+	document.addEventListener('keydown', (e) => {
+		if (lightbox.style.display === 'flex') {
+			if (e.key === 'ArrowLeft') showPrevImage();
+			if (e.key === 'ArrowRight') showNextImage();
+			if (e.key === 'Escape') closeLightbox();
+		}
+	});
+
+
 	if (menuItems.length) {
 		// default to 'about' as requested
 		const aboutIndex = menuItems.findIndex(b => b.dataset.target === 'about');
