@@ -612,6 +612,35 @@ h1 {
   border-top: 1px solid rgba(255,255,255,0.05);
 }
 
+/* Contact Buttons */
+.contact-buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.btn-contact {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: #38bdf8;
+  color: #000;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid #38bdf8;
+}
+
+.btn-contact:hover {
+  background: transparent;
+  color: #38bdf8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
 /* Responsive */
 @media (max-width: 820px) {
   .main-area { grid-template-columns: 1fr; }
