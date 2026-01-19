@@ -19,8 +19,9 @@ if (files.length === 0) {
 // Generate gallery HTML
 let galleryHTML = `                <div id="gallery" class="section">
                     <h2>Gallery</h2>
-                    
-                    <p>My photography showcase. I took these photos during my adventures.</p>
+
+                    <p>I wanted to showcase my love for photography. I took these photos during my adventures. I hope you enjoy them like the same way I had enjoyed taking these photos!
+                    Our planet is truly a beautiful place.</p>
                     <div class="gallery-container">`;
 
 files.forEach((file, index) => {
