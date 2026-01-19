@@ -175,10 +175,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		tutorialSpotlight.appendChild(circle);
 
 		// Position "Click Me!" text below hamburger
-		tutorialText.style.position = 'absolute';
-		tutorialText.style.top = rect.bottom + 20 + 'px';
+		tutorialText.style.position = 'fixed';
+		tutorialText.style.top = (rect.bottom + 20) + 'px';
 		tutorialText.style.right = 'auto';
-		tutorialText.style.left = rect.left + rect.width / 2 - 60 + 'px';
+		tutorialText.style.left = (rect.left + rect.width / 2 - 60) + 'px';
 
 		// Close tutorial when user clicks hamburger, overlay, or "Click Me!"
 		function closeTutorial() {
