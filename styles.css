@@ -192,24 +192,28 @@ h1 {
 
 /* Resume styles */
 .resume-content {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   text-align: left;
+  line-height: 1.55;
 }
 
 .resume-section {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem 0;
 }
 
 .resume-section h3 {
   color: #7dd3fc;
-  margin-bottom: 0.75rem;
-  font-size: 1.3rem;
-  border-bottom: 1px solid rgba(125, 211, 252, 0.2);
-  padding-bottom: 0.5rem;
+  margin-bottom: 0.85rem;
+  font-size: 1.25rem;
+  border-bottom: 1px solid rgba(125, 211, 252, 0.12);
+  padding-bottom: 0.45rem;
 }
 
 .resume-item {
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
 }
 
 .resume-header {
@@ -222,7 +226,7 @@ h1 {
 
 .resume-date {
   color: #9ca3af;
-  font-size: 1rem;
+  font-size: 0.98rem;
   white-space: nowrap;
 }
 
@@ -261,7 +265,7 @@ h1 {
 .resume-item ul li {
   position: relative;
   padding-left: 1.25rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .resume-item ul li::before {
