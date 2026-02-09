@@ -288,4 +288,23 @@ document.addEventListener('DOMContentLoaded', () => {
 		// Start typing animation
 		initializeTyping();
 	}
+
+	// Optimize image loading with blur-up effect
+	const images = document.querySelectorAll('.gallery-image');
+	images.forEach(img => {
+		// If image is already cached/loaded
+		if (img.complete && img.naturalHeight !== 0) {
+			img.classList.add('loaded');
+		}
+		
+		// When image finishes loading
+		img.addEventListener('load', () => {
+			img.classList.add('loaded');
+		});
+		
+		// Handle loading errors
+		img.addEventListener('error', () => {
+			img.classList.add('loaded'); // Still show placeholder
+		});
+	});
 });
